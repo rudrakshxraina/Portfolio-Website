@@ -1,142 +1,112 @@
-import { useNavigate } from "react-router-dom";
-import Header from './CardNav.jsx';
-import Aurora from './Aurora';
-import Dock from './Dock';
-import logo from './assets/react.svg';
-import {
-  VscHome,
-  VscArchive,
-  VscAccount,
-  VscCode
-} from 'react-icons/vsc';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import './Home.css';
 
 export default function Home() {
-  const navigate = useNavigate();
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const socialRef = useRef(null);
 
-  // Nav items configuration
-  const navItems = [
-    {
-      label: "Projects",
-      bgColor: "#170D27",
-      textColor: "#fff",
-      links: [
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" }
-      ]
-    },
-    {
-      label: "Resources",
-      bgColor: "#0D0716",
-      textColor: "#fff",
-      links: [
-        {
-          label: "Resume",
-          href: "https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing",
-          ariaLabel: "Resume"
-        },
-        {
-          label: "HackerRank Certificate",
-          href: "https://www.hackerrank.com/certificates/fa03f78ba924",
-          ariaLabel: "View HackerRank Certificate"
-        },
-        {
-          label: "Forage Certificate",
-          href: "https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/E6McHJDKsQYh79moz_Sj7temL583QAYpHXD_696c861ab1d14321bb3e9433_1768725411989_completion_certificate.pdf",
-          ariaLabel: "View Forage Certificate"
-        }
-      ]
-    },
-    {
-      label: "Contact",
-      bgColor: "#271E37",
-      textColor: "#fff",
-      links: [
-        {
-          label: "Email",
-          href: "mailto:rudraksh.raina.official@gmail.com",
-          ariaLabel: "Email"
-        },
-        {
-          label: "GitHub",
-          href: "https://github.com/rudrakshxraina",
-          ariaLabel: "GitHub"
-        },
-        {
-          label: "LinkedIn",
-          href: "https://www.linkedin.com/in/rudraksh-raina/",
-          ariaLabel: "LinkedIn"
-        }
-      ]
-    }
-  ];
-
-  // Dock items configuration
-  const dockItems = [
-    {
-      icon: <VscHome size={18} />,
-      label: 'Home',
-      onClick: () => navigate('/')
-    },
-    {
-      icon: <VscArchive size={18} />,
-      label: 'Projects',
-      onClick: () => navigate('/projects')
-    },
-    {
-      icon: <VscAccount size={18} />,
-      label: 'Links',
-      onClick: () => navigate('/links')
-    },
-    {
-      icon: <VscCode size={18} />,
-      label: 'Skills',
-      onClick: () => navigate('/skills')
-    }
-  ];
+  useEffect(() => {
+    const tl = gsap.timeline({ delay: 0.3 });
+    
+    tl.from(titleRef.current, {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+    .from(subtitleRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4')
+    .from(descriptionRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.3')
+    .from(socialRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.2');
+  }, []);
 
   return (
-    <>
-      {/* Top Navigation */}
-      <Header
-        logo={logo}
-        logoAlt="Rudraksh Raina"
-        items={navItems}
-        baseColor="#fff"
-        menuColor="#000"
-        buttonBgColor="#111"
-        buttonTextColor="#fff"
-        ease="power3.out"
-        theme="dark"
-      />
-
-      {/* Background Aurora Effect */}
-      <Aurora
-        colorStops={["#5227FF", "#5227FF", "#5227FF"]}
-        blend={0.5}
-        amplitude={1.0}
-        speed={1}
-      />
-
-      {/* Home Page Content */}
-      <div className="home-page">
-        <div className="home-container">
-          <h1 className="home-title">Rudraksh Raina</h1>
-          <p className="home-subtitle">Full Stack Developer & Problem Solver</p>
-          <p className="home-description">
-            Welcome to my portfolio. Explore my projects, skills, and connect with me.
+    <div className="home-page">
+      <div className="home-container">
+        <div className="home-hero">
+          <div className="home-badge">Portfolio</div>
+          <h1 ref={titleRef} className="home-title">
+            Rudraksh Raina
+          </h1>
+          <p ref={subtitleRef} className="home-subtitle">
+            Full Stack Developer & Problem Solver
           </p>
+          <p ref={descriptionRef} className="home-description">
+            I build beautiful, functional web applications with modern technologies. 
+            Passionate about creating seamless user experiences and solving complex problems.
+          </p>
+          
+          <div ref={socialRef} className="home-social">
+            <a 
+              href="https://github.com/rudrakshxraina" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} />
+              <span>GitHub</span>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/rudraksh-raina/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} />
+              <span>LinkedIn</span>
+            </a>
+            <a 
+              href="mailto:rudraksh.raina.official@gmail.com" 
+              className="social-link"
+              aria-label="Email"
+            >
+              <FaEnvelope size={20} />
+              <span>Email</span>
+            </a>
+            <a 
+              href="https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="social-link resume-link"
+              aria-label="Resume"
+            >
+              <FaFileAlt size={20} />
+              <span>Resume</span>
+            </a>
+          </div>
+
+          <div className="home-tech-preview">
+            <span className="tech-label">Tech Stack:</span>
+            <div className="tech-tags">
+              <span className="tech-tag">React</span>
+              <span className="tech-tag">JavaScript</span>
+              <span className="tech-tag">Python</span>
+              <span className="tech-tag">TypeScript</span>
+              <span className="tech-tag">Java</span>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Bottom Dock */}
-      <Dock
-        items={dockItems}
-        panelHeight={68}
-        baseItemSize={50}
-        magnification={70}
-      />
-    </>
+    </div>
   );
 }

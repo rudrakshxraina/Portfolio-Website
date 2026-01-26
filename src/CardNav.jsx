@@ -121,7 +121,7 @@ const createTimeline = () => {
             <div className="hamburger-line" />
           </div>
 
-          <div className="nav-title">Portfolio</div>
+          <div className="nav-title"></div>
 
 
 

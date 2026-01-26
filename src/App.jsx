@@ -147,14 +147,18 @@ function App() {
         speed={1}
       />
 
-      {/* Routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/links" element={<Links />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      {/* Routes - Home is the default landing page */}
+      <div style={{ position: 'relative', zIndex: 10, minHeight: '100vh', width: '100%' }}>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio-website" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/links" element={<Links />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
 
       {/* Bottom Dock */}
       <Dock

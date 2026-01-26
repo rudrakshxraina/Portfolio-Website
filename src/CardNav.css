@@ -1,0 +1,174 @@
+/* ================= ROOT CONTAINER ================= */
+.card-nav-container {
+  position: absolute;
+  top: 20px;                /* ✅ GAP FROM TOP (important fix) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1100px;
+  z-index: 100;
+}
+
+/* ================= NAV BAR ================= */
+.card-nav {
+  height: 60px;
+  background: linear-gradient(
+    135deg,
+    #0b0616,
+    #120a23,
+    #0b0616
+  );
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* ================= TOP BAR ================= */
+.card-nav-top {
+  position: relative;        /* ✅ REQUIRED for centered text */
+  height: 60px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= CENTER TEXT ================= */
+.nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 17px;           /* ✅ Matches reference size */
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger-menu {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger-menu.open .hamburger-line:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* ================= CTA BUTTON ================= */
+.card-nav-cta-button {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #7c6cff, #5b3df5);
+  box-shadow:
+    0 0 0 rgba(124, 108, 255, 0),
+    0 8px 24px rgba(124, 108, 255, 0.45);
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+.card-nav-cta-button:hover {
+  box-shadow:
+    0 0 16px rgba(124, 108, 255, 0.85),
+    0 12px 32px rgba(124, 108, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+
+/* ================= EXPAND CONTENT ================= */
+.card-nav-content {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  align-items: stretch;   /* REQUIRED */
+}
+
+
+/* ================= NAV CARDS ================= */
+.nav-card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;           /* 🔥 THIS IS THE KEY */
+  border-radius: 14px;
+  padding: 16px;
+}
+
+
+.nav-card-label {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.nav-card-links {
+  margin-top: auto;       /* keeps bottom alignment */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+.nav-card-link {
+  font-size: 15px;
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.nav-card-link:hover {
+  opacity: 1;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .card-nav-container {
+    top: 14px;               /* ✅ Smaller gap on mobile */
+  }
+
+  .card-nav-content {
+    flex-direction: column;
+  }
+
+  .nav-card {
+    min-height: auto;
+  }
+
+  .nav-title {
+    font-size: 16px;
+  }
+
+  /* ✅ KEEP BUTTON VISIBLE ON MOBILE */
+  .card-nav-cta-button {
+    display: inline-flex;
+  }
+}

@@ -23,7 +23,7 @@ It highlights my projects, skills, and ways to connect with me.
 
 ## 🔗 Live Demo
 
-👉 **Portfolio:** https://your-portfolio-link-here.com  
+👉 **Portfolio:** https://rudrakshxraina.github.io/
 
 ## 📌 Status
 

@@ -2,6 +2,7 @@
 // Core Imports
 // ================================
 import Header from './CardNav.jsx';
+import './App.css';
 import Aurora from './Aurora';
 import Dock from './Dock';
 import Contact from "./Contact";

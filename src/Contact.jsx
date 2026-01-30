@@ -11,6 +11,8 @@ import {
   VscCode
 } from 'react-icons/vsc';
 import './Contact.css';
+import { useToast } from './context/ToastContext';
+import { RESUME_URL } from './config';
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
+  const { showToast } = useToast();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -57,13 +60,13 @@ export default function Contact() {
       const data = await response.json();
 
       if (data.success) {
-        alert("Message sent successfully ✅");
+        showToast("Message sent successfully ✅", 'success');
         setForm({ name: "", email: "", message: "" });
       } else {
-        alert("Something went wrong ❌");
+        showToast("Something went wrong ❌", 'error');
       }
     } catch (error) {
-      alert("Network error. Please try again later ⚠️");
+      showToast("Network error. Please try again later ⚠️", 'error');
     } finally {
       setLoading(false);
     }
@@ -88,7 +91,7 @@ export default function Contact() {
       links: [
         {
           label: "Resume",
-          href: "https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing",
+          href: RESUME_URL,
           ariaLabel: "Resume"
         },
         {

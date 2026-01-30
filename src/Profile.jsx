@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fa';
 import { GoArrowUpRight } from 'react-icons/go';
 import './Profile.css';
+import { RESUME_URL } from './config';
 
 export default function Links() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function Links() {
       links: [
         {
           label: "Resume",
-          href: "https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing",
+          href: RESUME_URL,
           ariaLabel: "Resume"
         },
         {
@@ -107,7 +108,7 @@ export default function Links() {
       name: "GitHub",
       url: "https://github.com/rudrakshxraina",
       icon: <FaGithub size={24} />,
-      color: "#ffffff"
+      color: "var(--text-color)"
     },
     {
       name: "LinkedIn",

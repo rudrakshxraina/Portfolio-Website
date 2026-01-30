@@ -12,18 +12,13 @@
 /* ================= NAV BAR ================= */
 .card-nav {
   height: 60px;
-  background: linear-gradient(
-    135deg,
-    #0b0616,
-    #120a23,
-    #0b0616
-  );
+  background: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--input-border);
   backdrop-filter: blur(12px);
-}
+} 
 
 /* ================= TOP BAR ================= */
 .card-nav-top {
@@ -35,6 +30,31 @@
   justify-content: space-between;
 }
 
+/* Action group for CTA + theme */
+.action-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.theme-toggle-button:focus {
+  outline: 3px solid rgba(100, 108, 255, 0.18);
+}
+
 /* ================= CENTER TEXT ================= */
 .nav-title {
   position: absolute;
@@ -42,7 +62,7 @@
   transform: translateX(-50%);
   font-size: 17px;           /* ✅ Matches reference size */
   font-weight: 600;
-  color: #ffffff;
+  color: var(--text-color);
   letter-spacing: -0.3px;
   pointer-events: none;
   white-space: nowrap;
@@ -62,7 +82,7 @@
 .hamburger-line {
   width: 22px;
   height: 2px;
-  background: #ffffff;
+  background: var(--text-color);
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
@@ -107,6 +127,20 @@
   padding: 12px;
   align-items: stretch;   /* REQUIRED */
 }
+
+/* Light theme card override for readability */
+.theme-light .nav-card {
+  background: #f5f7fa !important;
+  color: var(--text-color) !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+}
+
+/* darker text for links in light theme */
+.theme-light .nav-card-link {
+  color: var(--text-color) !important;
+  opacity: 0.95;
+}
+
 
 
 /* ================= NAV CARDS ================= */

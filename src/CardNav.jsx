@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { GoArrowUpRight } from 'react-icons/go';
 import './CardNav.css';
+import ThemeToggle from './ThemeToggle';
 import { useNavigate } from "react-router-dom";
 
 const CardNav = ({
@@ -123,17 +124,18 @@ const createTimeline = () => {
 
           <div className="nav-title"></div>
 
+          <div className="action-group">
+            <ThemeToggle />
 
+            <button
+              type="button"
+              className="card-nav-cta-button"
+              onClick={() => navigate("/contact")}
 
-          <button
-            type="button"
-            className="card-nav-cta-button"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-            onClick={() => navigate("/contact")}
-
-          >
-            Contact me
-          </button>
+            >
+              Contact me
+            </button>
+          </div>
         </div>
 
         {/* CONTENT */}

@@ -17,26 +17,21 @@
 
 .coming-soon-content {
   text-align: center;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 6, 22, 0.8),
-    rgba(18, 10, 35, 0.8),
-    rgba(11, 6, 22, 0.8)
-  );
-  backdrop-filter: blur(20px);
+  background: var(--form-bg);
+  backdrop-filter: blur(12px);
   border-radius: 24px;
   padding: 4rem 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--input-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .coming-soon-title {
   font-size: 4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-color);
   margin-bottom: 2rem;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 0%, rgba(124, 108, 255, 0.8) 100%);
+  background: linear-gradient(135deg, var(--text-color) 0%, rgba(124, 108, 255, 0.8) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -60,7 +55,7 @@
 
 .sub-text {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--muted-color);
   margin: 0;
   line-height: 1.6;
   max-width: 600px;

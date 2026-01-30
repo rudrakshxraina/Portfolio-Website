@@ -10,6 +10,7 @@ import {
   VscCode
 } from 'react-icons/vsc';
 import './Skills.css';
+import { RESUME_URL } from './config';
 
 export default function Skills() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Skills() {
       links: [
         {
           label: "Resume",
-          href: "https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing",
+          href: RESUME_URL,
           ariaLabel: "Resume"
         },
         {

@@ -13,6 +13,8 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 
 
 import logo from './assets/react.svg';
+import { RESUME_URL } from './config';
+import { ToastProvider } from './context/ToastContext';
 
 // ================================
 // Icons (Dock)
@@ -29,6 +31,8 @@ import {
 // ================================
 function App() {
   const navigate = useNavigate();
+
+
 
   // =========================================================
   // NAVBAR CONFIGURATION
@@ -53,7 +57,7 @@ function App() {
       links: [
         {
           label: "Resume",
-          href: "https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing",
+          href: RESUME_URL,
           ariaLabel: "Resume"
         },
         {
@@ -125,7 +129,7 @@ function App() {
   // RENDER
   // =========================================================
   return (
-    <>
+    <ToastProvider>
       {/* Top Navigation */}
       <Header
         logo={logo}
@@ -167,7 +171,7 @@ function App() {
         baseItemSize={50}
         magnification={70}
       />
-    </>
+    </ToastProvider>
   );
 }
 

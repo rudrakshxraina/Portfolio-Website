@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
 import './Home.css';
+import { RESUME_URL } from './config';
 
 export default function Home() {
   const titleRef = useRef(null);
@@ -84,7 +85,7 @@ export default function Home() {
               <span>Email</span>
             </a>
             <a 
-              href="https://drive.google.com/file/d/1P4-y8iqUbEfJ6KIVCIbYq817C0XBYwTo/view?usp=sharing" 
+              href={RESUME_URL} 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link resume-link"

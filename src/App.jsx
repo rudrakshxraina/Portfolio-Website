@@ -44,11 +44,12 @@ function App() {
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" }
+        { label: "G.D MUN Website", href: "https://skixtz.github.io/GDMun2023/", ariaLabel: "G.D MUN Demo" },
+        { label: "Old Portfolio", href: "https://rudrakshxraina.github.io/Old-Portfolio/", ariaLabel: "Old Portfolio Demo" },
+        { label: "New Portfolio", href: "https://rudrakshxraina.github.io/Portfolio-Website/", ariaLabel: "New Portfolio Demo" }
       ]
     },
+
 
     {
       label: "Resources",

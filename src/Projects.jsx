@@ -11,6 +11,8 @@ import {
 } from 'react-icons/vsc';
 import './Projects.css';
 import { RESUME_URL } from './config';
+import { projects } from './data/projects';
+import ProjectCard from './ProjectCard';
 
 export default function Projects() {
   const navigate = useNavigate();
@@ -22,9 +24,9 @@ export default function Projects() {
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" },
-        { label: "Coming Soon", ariaLabel: "In Progress" }
+        { label: "G.D MUN Website", href: "https://skixtz.github.io/GDMun2023/", ariaLabel: "G.D MUN Demo" },
+        { label: "Old Portfolio", href: "https://rudrakshxraina.github.io/Old-Portfolio/", ariaLabel: "Old Portfolio Demo" },
+        { label: "New Portfolio", href: "https://rudrakshxraina.github.io/Portfolio-Website/", ariaLabel: "New Portfolio Demo" }
       ]
     },
     {
@@ -123,13 +125,15 @@ export default function Projects() {
       {/* Projects Page Content */}
       <div className="projects-page">
         <div className="projects-container">
-          <div className="coming-soon-content">
-            <h1 className="coming-soon-title">Projects</h1>
-            <div className="coming-soon-text">
-              <p className="main-text">Coming Soon</p>
-              <p className="sub-text">I'm working on some exciting projects that I can't wait to share with you. Stay tuned!</p>
-            </div>
-          </div>
+          <div className="projects-content">
+        <h1 className="projects-title">Projects</h1>
+
+        <div className="projects-grid">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} />
+          ))}
+        </div>
+      </div>
         </div>
       </div>
 
